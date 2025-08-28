@@ -910,6 +910,17 @@ body.light .banner.social-banner {
   }
 }
 
+/* Samples link styling */
+.samples-link a {
+  transition: all 0.3s ease;
+}
+
+.samples-link a:hover {
+  color: var(--brand-2) !important;
+  border-bottom-color: var(--brand-2) !important;
+  transform: translateY(-2px);
+}
+
 /* Scroll animations */
 .animate {
   opacity: 0;
