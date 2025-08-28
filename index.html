@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>purelight</title>
+  <meta name="description" content="A static, responsive landing page inspired by editorsvn.com built with vanilla HTML, CSS, and JS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body class="light">
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="assets/img/logo.jpg" alt="Duy Logo" class="logo-image">
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#projects">Samples</a></li>
+          <li><a href="#testimonials">Feedback</a></li>
+          <li><a href="#news">News</a></li>
+          <li>
+            <a href="#" id="services-nav-btn" class="nav-dropdown-btn">
+              Services
+              <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#services">Photos Editing</a>
+              <a href="#services">Videos Editing</a>
+              <a href="#services">3D Staging</a>
+              <a href="#services">Virtual Staging</a>
+              <a href="#services">Floorplan</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <button class="btn btn-ghost" id="themeToggle" aria-label="Toggle theme">Dark</button>
+        <div class="search-container">
+          <input type="text" placeholder="Search..." class="search-input">
+          <button class="search-btn" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </div>
+        <button class="hamburger" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="container mobile" id="mobileMenu">
+      <a href="#about">About us</a>
+      <a href="#projects">Samples</a>
+      <a href="#testimonials">Feedback</a>
+      <a href="#news">News</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero with video background -->
+  <main id="home" class="hero">
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="assets/img/home.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="container hero-grid">
+      <div class="animate">
+        <span class="eyebrow">
+          <img src="assets/img/logo.jpg" alt="Purelight Logo" class="eyebrow-logo">
+          booking.purelight@gmail.com
+        </span>
+        <h1 class="h1">
+          REAL ESTATE EDITING – MAKE YOUR LISTINGS SHINE WITH FAST, AFFORDABLE, HIGH QUALITY EDITS.
+        </h1>
+        <div class="row" style="margin-top:16px;">
+          <a class="btn btn-primary" href="#services">SERVICES</a>
+          <a class="btn btn-ghost" href="#projects">SAMPLES</a>
+          <a class="btn btn-cta" href="#contact">CONTACT US NOW</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><h3 data-count="2000">2000+</h3><p>Pictures / day</p></div>
+          <div class="stat"><h3 data-count="100">100+</h3><p>Customers</p></div>
+          <div class="stat"><h3 data-count="1100">1100+</h3><p>Followers</p></div>
+          <div class="stat"><h3 data-count="97">97%</h3><p>Avg. satisfaction</p></div>
+        </div>
+      </div>
+      <div class="hero-placeholder animate"></div>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <div class="card animate">
+        <span class="badge">Who we are</span>
+        <h2 class="section-title">Your 24/7 editing partner</h2>
+        <p>We work with photographers and agencies across the USA, Australia, UK, Norway, and Canada. Unlimited revisions until you're thrilled.</p>
+      </div>
+      <div class="card animate">
+        <h3 style="margin-top:0">Why choose us</h3>
+        <ul>
+          <li>Lightning‑fast turnaround (12–24h)</li>
+          <li>Dedicated QA and color consistency</li>
+          <li>Bulk discounts for teams</li>
+          <li>Secure transfer via your preferred tool</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head animate">
+        <div>
+          <h2 class="section-title">Services</h2>
+          <p class="section-sub">Transparent pricing. Mix & match what you need.</p>
+        </div>
+        <a class="btn btn-ghost" href="#contact">Free test (3 photos)</a>
+      </div>
+      <div class="grid">
+        <div class="card animate">
+          <span class="pill">Photo Editing</span>
+          <h3>HDR/Flambient + Sky</h3>
+          <p class="price">from $5</p>
+          <p>Brightness/contrast, highlight detail, shadow lift, sky replacement, turn on interior/exterior lights, pool/garden lights.</p>
+        </div>
+        <div class="card animate">
+          <span class="pill">Day to Dusk</span>
+          <h3>Blue hour transformation</h3>
+          <p class="price">from $0.8</p>
+          <p>Noise reduction, white balance, lens correction, color adjustments, crop/resize, remove flash glare.</p>
+        </div>
+        <div class="card animate">
+          <span class="pill">Virtual Staging</span>
+          <h3>Style any room</h3>
+          <p class="price">from $0.7</p>
+          <p>Color correction, brightness/contrast, add green grass/trees, add small decor, background removal.</p>
+        </div>
+        <div class="card animate">
+          <span class="pill">Remove Object</span>
+          <h3>Declutter & clean</h3>
+          <p>Remove cables, bins, signs, cars, distractions; repair walls and floors.</p>
+        </div>
+        <div class="card animate">
+          <span class="pill">Floor Plan</span>
+          <h3>2D/3D floor plans</h3>
+          <p>Neat, branded plans with dimensions, furniture, and legend.</p>
+        </div>
+        <div class="card animate">
+          <span class="pill">Video Editing</span>
+          <h3>Shorts, reels, tours</h3>
+          <p>Cutting, color, titles, music, captions, export presets for MLS & social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Gallery -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head animate"><h2 class="section-title">Project images</h2></div>
+      <div class="gallery-wrapper">
+        <div class="gallery-track gallery-track-1">
+          <a href="#" class="project-card" data-project="project1">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1505692794403-34d4982f88aa?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project2">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1597047084897-51e81819a499?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project3">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project4">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project5">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500043357865-c6b8827edfef?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project6">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project7">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project8">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+        </div>
+        <div class="gallery-track gallery-track-2">
+          <a href="#" class="project-card" data-project="project1">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1505692794403-34d4982f88aa?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project2">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1597047084897-51e81819a499?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project3">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project4">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project5">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500043357865-c6b8827edfef?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project6">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project7">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+          <a href="#" class="project-card" data-project="project8">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=800&auto=format&fit=crop');"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials section dark-background">
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop" class="testimonials-bg" alt="">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="section-head animate">
+        <div>
+          <h2 class="section-title">Customer feedback</h2>
+          <p class="section-sub">We strive every day to deliver the best work and service.</p>
+        </div>
+      </div>
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="https://images.unsplash.com/photo-1599566150162-0e24b7a421b1?q=80&w=300&auto=format&fit=crop" class="testimonial-img" alt="">
+              <h3>Maximilian</h3>
+              <h4>CEO & Founder</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>The team and I have been using Duasama services extensively over the past year and there is no one I would rather trust to showcase my clients homes in the best way possible. He is prompt, reliable and has turned into a friend! Highly highly recommend.</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=300&auto=format&fit=crop" class="testimonial-img" alt="">
+              <h3>Sandy Nguyen</h3>
+              <h4>Realtor</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>Duasama is doing very professional work, Crystal clear pictures and whatever he tells he delivers. I recommend him and I will call him for my future projects.</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" class="testimonial-img" alt="">
+              <h3>Milan Hoang</h3>
+              <h4>Photographer</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>Prompt, professional and courteous service. Photos were amazing. Highly recommend!</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:10px">
+          <img src="assets/img/logo.jpg" alt="Duy Logo" class="logo-image">
+        </div>
+        <p class="section-sub">Transparent pricing, quick turnaround, and unlimited revisions.</p>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <a href="#">Returns & Shipping</a><br />
+        <a href="#">Terms of Use</a><br />
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a><br />
+        <a href="#services">Services</a><br />
+        <a href="#projects">Projects</a>
+      </div>
+      <div class="footer-links">
+        <h4>Purelight</h4>
+        <a href="#">© 2025 Purelight</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Social Media Banner -->
+  <div class="banner social-banner" role="region" aria-label="Social links">
+    <strong>ORDER FREE TEST NOW!</strong>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
