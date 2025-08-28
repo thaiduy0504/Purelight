@@ -703,7 +703,7 @@ body.light footer {
   border-top: 1px solid rgba(0,0,0,.08);
   background: #f1f3f4;
 }
-.footer-grid { display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 18px; padding: 30px 0; }
+.footer-grid { display:grid; grid-template-columns: 2fr 1fr; gap: 18px; padding: 30px 0; }
 .footer-grid a { color: var(--muted); text-decoration:none; }
 .footer-links h4 { margin-bottom: 10px; }
 .copyright { color: var(--muted); font-size: 12px; padding: 14px 0 30px; }
