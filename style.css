@@ -62,18 +62,20 @@ body.light header {
 }
 
 .logo-image {
-  height: 48px; /* Tăng chiều cao lên 20% (40px * 1.2 = 48px) */
+  height: 56px; /* Tăng chiều cao lên thêm 8px (48px + 8px = 56px) */
   width: auto;
   transition: all 0.3s ease-in-out; /* Thêm hiệu ứng chuyển đổi mượt mà */
   border-radius: 8px; /* Bo góc nhẹ cho hình ảnh */
   padding: 4px; /* Tạo khoảng đệm nhỏ giữa hình ảnh và viền */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Viền mỏng, tinh tế */
+  border: 2px solid rgba(58, 160, 255, 0.3); /* Viền dày hơn với màu brand */
+  box-shadow: 0 2px 8px rgba(58, 160, 255, 0.2); /* Thêm đổ bóng với màu brand */
 }
 
 /* Hiệu ứng làm nổi bật logo khi di chuột */
 .logo-image:hover {
-  transform: scale(1.05); /* Phóng to nhẹ logo khi di chuột */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng mềm */
+  transform: scale(1.08); /* Phóng to nhẹ logo khi di chuột */
+  box-shadow: 0 6px 20px rgba(58, 160, 255, 0.4); /* Thêm đổ bóng mềm với màu brand */
+  border-color: rgba(58, 160, 255, 0.6); /* Tăng độ đậm của viền khi hover */
 }
 
 .logo-dot { display: none; }
@@ -307,20 +309,23 @@ nav li {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .eyebrow-logo {
-  height: 20px;
+  height: 32px; /* Tăng từ 20px lên 32px */
   width: auto;
   border-radius: 4px;
   border: 1px solid rgba(255,255,255,0.2);
   padding: 2px;
   background: rgba(255,255,255,0.05);
+}
+
+.eyebrow-email {
+  font-size: 12px; /* Giảm font size từ 14px xuống 12px */
+  color: var(--brand);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .h1 { font-size: clamp(32px, 3.6vw, 54px); line-height: 1.05; margin: 10px 0 12px; font-weight: 800; }
 .lead { font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); }
