@@ -89,23 +89,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-// Dropdown for nav link
-const servicesNavBtn = document.getElementById('services-nav-btn');
-const dropdownMenu = servicesNavBtn?.nextElementSibling;
-
-servicesNavBtn?.addEventListener('click', (e) => {
-    e.preventDefault(); // Ngăn trình duyệt cuộn lên đầu trang
-    dropdownMenu.classList.toggle('show');
-    servicesNavBtn.classList.toggle('active'); // Thêm/xoá class active để xoay icon
-});
-
-// Close dropdown if user clicks outside
-document.addEventListener('click', (e) => {
-    if (!servicesNavBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.remove('show');
-        servicesNavBtn.classList.remove('active'); // Xóa class active khi đóng
-    }
-});
+// Removed dropdown functionality as Services is now a simple link
 
 // Image data for each project
 const projectsData = {
@@ -191,6 +175,17 @@ document.addEventListener('keydown', (e) => {
     if (e.key === "Escape" && modal.style.display === "flex") {
         modal.style.display = "none";
     }
+});
+
+// Service card click handlers
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+        // Scroll to contact section
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
 });
 
 // Swiper.js initialization
