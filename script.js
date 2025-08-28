@@ -91,6 +91,39 @@ document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
 // Removed dropdown functionality as Services is now a simple link
 
+// Facebook chat function
+function openFacebookChat() {
+  // Open Facebook page in new tab
+  window.open('https://www.facebook.com/profile.php?id=100083193085109', '_blank');
+}
+
+// Contact form submission to Facebook
+function sendToFacebook(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const message = document.getElementById('contactMessage').value;
+  
+  // Create the message content
+  const fullMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+  
+  // Encode the message for URL
+  const encodedMessage = encodeURIComponent(fullMessage);
+  
+  // Create Facebook messenger URL
+  const messengerUrl = `https://www.facebook.com/profile.php?id=100083193085109`;
+  
+  // Open Facebook page in new tab
+  window.open(messengerUrl, '_blank');
+  
+  // Show success message
+  alert('Redirecting to Facebook page. Please send your message there:\n\n' + fullMessage);
+  
+  // Clear the form
+  document.getElementById('contactForm').reset();
+}
+
 // Image data for each project
 const projectsData = {
     project1: [

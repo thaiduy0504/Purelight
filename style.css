@@ -694,6 +694,7 @@ section { padding: 64px 0; }
 .bi-facebook::before { content: "f"; }
 .bi-instagram::before { content: "📷"; }
 .bi-linkedin::before { content: "in"; }
+.bi-envelope::before { content: "✉"; }
 
 
 
@@ -725,13 +726,14 @@ body.light footer {
   bottom: 20px;
   z-index: 50;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
-  padding: 12px 14px;
-  border-radius: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
   background: #0c131d;
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: var(--shadow-soft);
+  transform: scale(1.1);
 }
 
 body.light .banner.social-banner {
@@ -741,8 +743,8 @@ body.light .banner.social-banner {
 
 .banner.social-banner strong {
   color: var(--text);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .banner.social-banner .social-links {
@@ -755,8 +757,8 @@ body.light .banner.social-banner {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background-color: transparent;
   border-radius: 50%;
   color: var(--muted);
@@ -775,27 +777,15 @@ body.light .banner.social-banner {
 
 /* Hover màu riêng cho từng icon */
 .banner.social-banner .social-links a:nth-child(1):hover {
-  background-color: #1da1f2;
-  color: white;
-  border-color: #1da1f2;
-}
-
-.banner.social-banner .social-links a:nth-child(2):hover {
   background-color: #3b5998;
   color: white;
   border-color: #3b5998;
 }
 
-.banner.social-banner .social-links a:nth-child(3):hover {
-  background-color: #e4405f;
+.banner.social-banner .social-links a:nth-child(2):hover {
+  background-color: #ea4335;
   color: white;
-  border-color: #e4405f;
-}
-
-.banner.social-banner .social-links a:nth-child(4):hover {
-  background-color: #007bb5;
-  color: white;
-  border-color: #007bb5;
+  border-color: #ea4335;
 }
 
 /* Contact Section */
