@@ -93,8 +93,8 @@ document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
 // Facebook chat function
 function openFacebookChat() {
-  // Open Facebook page in new tab
-  window.open('https://www.facebook.com/profile.php?id=100083193085109', '_blank');
+  // Open Facebook Messenger chat directly
+  window.open('https://m.me/100083193085109', '_blank');
 }
 
 // Contact form submission to Facebook
