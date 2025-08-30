@@ -796,6 +796,16 @@ body.light .banner.social-banner {
   margin-top: 30px;
 }
 
+.contact-item a {
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: var(--brand-2) !important;
+  text-decoration: underline !important;
+  transform: translateY(-1px);
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
