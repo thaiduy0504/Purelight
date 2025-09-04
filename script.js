@@ -234,20 +234,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Lead form -> open mail client with prefilled content
+// Lead form -> send email directly using Formspree
 function sendEmail(event) {
   event.preventDefault();
   const name = document.getElementById('leadName').value.trim();
   const email = document.getElementById('leadEmail').value.trim();
   const message = document.getElementById('leadMessage').value.trim();
 
-  const to = 'booking.purelight@gmail.com';
-  const subject = encodeURIComponent('New Inquiry from Website');
-  const body = encodeURIComponent(`${name} - ${email} - ${message}`);
+  // Show loading state
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
 
-  const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
+  // Prepare form data
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('email', email);
+  formData.append('message', message);
+  formData.append('_replyto', email);
+  formData.append('_subject', `New Contact Form Submission from ${name}`);
 
-  // Optional: clear form after triggering mail app
-  document.getElementById('leadForm').reset();
+  // Send to Formspree (you'll need to replace with your Formspree endpoint)
+  fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Email sent successfully! We will get back to you soon.');
+      document.getElementById('leadForm').reset();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .catch(error => {
+    alert('Sorry, there was an error sending your message. Please try again or contact us directly at booking.purelight@gmail.com');
+    console.error('Form submission error:', error);
+  })
+  .finally(() => {
+    // Restore button state
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  });
 }
