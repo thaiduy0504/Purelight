@@ -234,12 +234,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Lead form -> send email directly using Formspree
+// Lead form -> send to backend API and save to database
 function sendEmail(event) {
   event.preventDefault();
   const name = document.getElementById('leadName').value.trim();
   const email = document.getElementById('leadEmail').value.trim();
   const message = document.getElementById('leadMessage').value.trim();
+
+  // Validate form data
+  if (!name || !email || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
 
   // Show loading state
   const submitBtn = event.target.querySelector('button[type="submit"]');
@@ -247,28 +253,25 @@ function sendEmail(event) {
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
-  // Prepare form data
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('email', email);
-  formData.append('message', message);
-  formData.append('_replyto', email);
-  formData.append('_subject', `New Contact Form Submission from ${name}`);
-
-  // Send to Formspree (you'll need to replace with your Formspree endpoint)
-  fetch('https://formspree.io/f/YOUR_FORM_ID', {
+  // Send to backend API
+  fetch('http://localhost:3000/api/contact', {
     method: 'POST',
-    body: formData,
     headers: {
-      'Accept': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      message: message
+    })
   })
-  .then(response => {
-    if (response.ok) {
-      alert('Email sent successfully! We will get back to you soon.');
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Message sent successfully! We will get back to you soon.');
       document.getElementById('leadForm').reset();
     } else {
-      throw new Error('Network response was not ok');
+      throw new Error(data.message || 'Failed to send message');
     }
   })
   .catch(error => {
