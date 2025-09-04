@@ -14,7 +14,17 @@
     "db:backup": "node db_manager.js backup",
     "db:clean": "node db_manager.js clean",
     "db:sample": "node db_manager.js sample",
-    "setup": "chmod +x setup_database.sh && ./setup_database.sh full"
+    "setup": "chmod +x setup_database.sh && ./setup_database.sh full",
+    "build:prod": "node update_frontend_for_production.js production",
+    "build:staging": "node update_frontend_for_production.js staging",
+    "build:dev": "node update_frontend_for_production.js development",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:netlify:preview": "netlify deploy",
+    "deploy:vercel": "vercel --prod",
+    "deploy:vercel:preview": "vercel",
+    "deploy:railway": "railway up",
+    "deploy:supabase": "echo 'Setup Supabase database first, then run: npm run deploy:vercel'",
+    "deploy:all": "npm run build:prod && npm run deploy:vercel && npm run deploy:netlify"
   },
   "dependencies": {
     "express": "^4.18.2",

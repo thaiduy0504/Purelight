@@ -1,0 +1,74 @@
+[build]
+  # Netlify sẽ publish toàn bộ thư mục vì đây là static site
+  publish = "."
+  command = "echo 'Static site - no build needed'"
+
+[build.environment]
+  # Node.js version (nếu cần)
+  NODE_VERSION = "18"
+
+# Redirects cho API calls
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.vercel.app/api/:splat"
+  status = 200
+  force = true
+
+# Redirects cho SPA (nếu cần)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers cho security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Headers cho static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers cho HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Form handling (nếu sử dụng Netlify Forms)
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Functions (nếu cần serverless functions)
+[functions]
+  directory = "netlify/functions"
+
+# Plugins (nếu cần)
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Environment variables (sẽ được set trong Netlify dashboard)
+# [context.production.environment]
+#   BACKEND_URL = "https://your-backend.vercel.app"
+#   API_KEY = "your-api-key"
+
+# [context.deploy-preview.environment]
+#   BACKEND_URL = "https://your-backend-preview.vercel.app"
+#   API_KEY = "your-preview-api-key"
