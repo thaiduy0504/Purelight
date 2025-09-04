@@ -24,6 +24,8 @@
     "deploy:vercel:preview": "vercel",
     "deploy:railway": "railway up",
     "deploy:supabase": "echo 'Setup Supabase database first, then run: npm run deploy:vercel'",
+    "setup:neon": "node setup_neon.js",
+    "deploy:neon": "echo 'Run: npm run setup:neon first, then: npm run deploy:vercel'",
     "deploy:all": "npm run build:prod && npm run deploy:vercel && npm run deploy:netlify"
   },
   "dependencies": {

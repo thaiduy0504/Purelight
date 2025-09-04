@@ -1,35 +1,17 @@
 # ⚡ Deploy Purelight trên Netlify - Quick Start
 
-## 🎯 Tùy chọn 1: Supabase + Vercel + Netlify (Khuyến nghị)
+## 🎯 Tùy chọn 1: Neon + Vercel + Netlify (Khuyến nghị)
 
-### Bước 1: Setup Database (5 phút)
+### Bước 1: Setup Database (3 phút)
 ```bash
-# 1. Tạo tài khoản Supabase: https://supabase.com
+# 1. Tạo tài khoản Neon: https://neon.tech
 # 2. Tạo project mới: purelight-db
-# 3. Vào SQL Editor, chạy:
+# 3. Chạy setup script:
+npm run setup:neon
 ```
 
-```sql
--- Tạo bảng contacts
-CREATE TABLE contacts (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  message TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tạo indexes
-CREATE INDEX idx_contacts_email ON contacts(email);
-CREATE INDEX idx_contacts_created_at ON contacts(created_at);
-
--- Enable RLS
-ALTER TABLE contacts ENABLE ROW LEVEL SECURITY;
-
--- Tạo policies
-CREATE POLICY "Enable insert for all users" ON contacts FOR INSERT WITH CHECK (true);
-CREATE POLICY "Enable read access for all users" ON contacts FOR SELECT USING (true);
-```
+# Script sẽ tự động tạo bảng và indexes
+# Chỉ cần paste connection string từ Neon dashboard
 
 ### Bước 2: Deploy Backend (3 phút)
 ```bash
@@ -42,7 +24,7 @@ vercel
 
 # 3. Set environment variables
 vercel env add DATABASE_URL
-# Paste connection string từ Supabase: postgresql://postgres:[password]@db.[project].supabase.co:5432/postgres
+# Paste connection string từ Neon: postgresql://username:password@ep-xxx-xxx.us-east-1.aws.neon.tech/neondb?sslmode=require
 
 vercel env add EMAIL_USER
 # booking.purelight@gmail.com
@@ -69,26 +51,33 @@ node update_frontend_for_production.js production
 
 ---
 
-## 🎯 Tùy chọn 2: Railway (All-in-one)
+## 🎯 Tùy chọn 2: Neon + Railway + Netlify
 
-### Bước 1: Deploy Backend + Database (5 phút)
+### Bước 1: Setup Neon Database (3 phút)
+```bash
+# 1. Tạo tài khoản Neon: https://neon.tech
+# 2. Tạo project mới: purelight-db
+# 3. Chạy setup script:
+npm run setup:neon
+```
+
+### Bước 2: Deploy Backend lên Railway (2 phút)
 ```bash
 # 1. Tạo tài khoản Railway: https://railway.app
 # 2. New Project → Deploy from GitHub
 # 3. Chọn repository Purelight
-# 4. Add Service → Database → PostgreSQL
-# 5. Railway tự động deploy backend
+# 4. Railway tự động deploy backend
 ```
 
-### Bước 2: Setup Environment Variables
+### Bước 3: Setup Environment Variables
 ```bash
 # Trong Railway dashboard:
-DATABASE_URL = (tự động tạo)
+DATABASE_URL = (paste từ Neon setup)
 EMAIL_USER = booking.purelight@gmail.com
 EMAIL_PASS = your_gmail_app_password
 ```
 
-### Bước 3: Update Frontend
+### Bước 4: Update Frontend
 ```bash
 # 1. Lấy backend URL từ Railway dashboard
 # 2. Cập nhật frontend
@@ -96,7 +85,7 @@ node update_frontend_for_production.js production
 # Nhập Railway backend URL
 ```
 
-### Bước 4: Deploy Frontend
+### Bước 5: Deploy Frontend
 ```bash
 # Deploy lên Netlify như bước 4 ở trên
 ```
@@ -126,10 +115,12 @@ EMAIL_PASS = your_16_character_app_password
 
 ### Setup và Deploy:
 ```bash
-# Tùy chọn 1: Supabase + Vercel
-npm run deploy:supabase
+# Tùy chọn 1: Neon + Vercel
+npm run setup:neon
+npm run deploy:vercel
 
-# Tùy chọn 2: Railway
+# Tùy chọn 2: Neon + Railway
+npm run setup:neon
 npm run deploy:railway
 
 # Update frontend cho production
@@ -149,8 +140,8 @@ railway logs
 # Test API
 curl https://your-backend.vercel.app/api/health
 
-# Xem database (Supabase)
-# Truy cập: https://supabase.com/dashboard
+# Xem database (Neon)
+# Truy cập: https://neon.tech/dashboard
 ```
 
 ---
@@ -162,7 +153,7 @@ curl https://your-backend.vercel.app/api/health
 - **Frontend:** `https://your-site.netlify.app`
 
 ### Database Management:
-- **Supabase:** Dashboard → Table Editor
+- **Neon:** Dashboard → SQL Editor / Table Editor
 - **Railway:** Dashboard → Database
 
 ### Analytics:
@@ -202,7 +193,7 @@ psql $DATABASE_URL -c "SELECT 1;"
 ## 💰 Chi phí
 
 ### Free Tiers:
-- **Supabase:** 500MB database, 50MB storage
+- **Neon:** 3GB database, 10GB transfer/month
 - **Vercel:** 100GB bandwidth/month
 - **Railway:** $5 credit/month
 - **Netlify:** 100GB bandwidth/month
