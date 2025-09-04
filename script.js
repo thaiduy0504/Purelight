@@ -233,3 +233,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Lead form -> open mail client with prefilled content
+function sendEmail(event) {
+  event.preventDefault();
+  const name = document.getElementById('leadName').value.trim();
+  const email = document.getElementById('leadEmail').value.trim();
+  const message = document.getElementById('leadMessage').value.trim();
+
+  const to = 'booking.purelight@gmail.com';
+  const subject = encodeURIComponent('New Inquiry from Website');
+  const body = encodeURIComponent(`${name} - ${email} - ${message}`);
+
+  const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+  window.location.href = mailto;
+
+  // Optional: clear form after triggering mail app
+  document.getElementById('leadForm').reset();
+}
