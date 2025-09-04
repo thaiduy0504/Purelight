@@ -790,9 +790,11 @@ body.light .banner.social-banner {
 
 /* Contact Section */
 .contact-content {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   margin-top: 30px;
+  align-items: start;
 }
 
 .contact-item a {
@@ -837,6 +839,11 @@ body.light .banner.social-banner {
   border-radius: var(--radius);
   padding: 30px;
   box-shadow: var(--shadow-soft);
+  height: fit-content;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-group {
@@ -904,7 +911,12 @@ body.light .banner.social-banner {
 
 @media (max-width: 768px) {
   .contact-content {
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-form {
+    min-height: auto;
   }
 }
 
