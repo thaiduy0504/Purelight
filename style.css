@@ -790,11 +790,9 @@ body.light .banner.social-banner {
 
 /* Contact Section */
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  justify-content: center;
   margin-top: 30px;
-  align-items: start;
 }
 
 .contact-item a {
@@ -911,12 +909,7 @@ body.light .banner.social-banner {
 
 @media (max-width: 768px) {
   .contact-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .contact-form {
-    min-height: auto;
+    justify-content: flex-start;
   }
 }
 
